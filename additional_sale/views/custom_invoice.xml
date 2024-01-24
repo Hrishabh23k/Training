@@ -1,0 +1,26 @@
+<odoo>
+    <record id="inherited_account_order_model_view_form" model="ir.ui.view">
+        <field name="name">inherited.account.move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quantity']" position="after">
+                <field name="discount_amount"/>
+            </xpath>
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="additional_price"/>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="after">
+                <page string="Custom Bill" name="custom_bill">
+                    <field name="custom_bill_id">
+                        <tree editable="bottom">
+                            <field name="product"/>
+                            <field name="desc"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

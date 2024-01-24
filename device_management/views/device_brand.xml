@@ -1,0 +1,41 @@
+<odoo>
+    <record id="device_brand_form_view" model="ir.ui.view">
+        <field name="name">device.brand.form</field>
+        <field name="model">device.brand</field>
+        <field name="arch" type="xml">
+            <form string="Device Brand">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="device_brand_tree_view" model="ir.ui.view">
+        <field name="name">device.brand.tree</field>
+        <field name="model">device.brand</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" decoration-bf="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="device_brand_action" model="ir.actions.act_window">
+        <field name="name">Device Brand</field>
+        <field name="res_model">device.brand</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Device Brand
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

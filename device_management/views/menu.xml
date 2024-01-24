@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+
+        <menuitem
+                id="menu_device_root"
+                name="DeviceManagement"/>
+
+        <menuitem
+                id="menu_device"
+                name="Device"
+                parent="menu_device_root"
+                action="device_action"/>
+
+        <menuitem
+                id="menu_hr_employee"
+                name="Employee"
+                parent="menu_device_root"
+                action="hr.open_view_employee_list_my"/>
+
+        <menuitem
+                id="menu_device_assignment"
+                name="DeviceAssignment"
+                parent="menu_device"
+                action="device_assignment_action"/>
+
+        <menuitem
+                id="menu_device_attribute"
+                name="DeviceAttribute"
+                parent="menu_device"
+                action="device_attribute_action"/>
+        <menuitem
+                id="menu_device_attribute_value"
+                name="DeviceAttributeValue"
+                parent="menu_device"
+                action="device_attribute_value_action"/>
+        <menuitem
+                id="menu_device_brand"
+                name="DeviceBrand"
+                parent="menu_device"
+                action="device_brand_action"/>
+        <menuitem
+                id="menu_device_model"
+                name="DeviceModel"
+                parent="menu_device"
+                action="device_model_action"/>
+
+        <menuitem
+                id="menu_device_type"
+                name="DeviceType"
+                parent="menu_device"
+                action="device_type_action"/>
+
+    </data>
+</odoo>

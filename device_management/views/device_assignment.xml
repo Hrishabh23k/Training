@@ -1,0 +1,69 @@
+<odoo>
+    <record id="device_assignment_form_view" model="ir.ui.view">
+        <field name="name">device.assignment.form</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Device Assignment">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="change_check"/>
+                            <field name="name" attrs=" {'invisible': [('change_check', '=', True)]}"
+                                   widget="char_emojis"/>
+                            <field name="date_start"/>
+                            <field name="date_expire"/>
+                            <field name="state"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="device_rating" widget="rating"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Widget" name="widget_device">
+                            <group>
+                                <field name="url" widget="url"/>
+                                <field name="email" widget="email"/>
+                                <field name="domain" widget="CopyClipboardChar"/>
+                                <field name="color"/>
+                                <field name="num" widget="percentage"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="device_assignment_tree_view" model="ir.ui.view">
+        <field name="name">device.assignment.tree</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="button_click" string="label" type="object" states="draft"/>
+                </header>
+                <field name="change_check"/>
+                <field name="name" attrs=" {'invisible': [('change_check', '=', True)]}"/>
+                <field name="date_start" widget="remaining_days"/>
+                <field name="date_expire" widget="remaining_days"/>
+                <field name="state"/>
+                <field name="employee_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="device_assignment_action" model="ir.actions.act_window">
+        <field name="name">Device Assignment</field>
+        <field name="res_model">device.assignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Device Assignment
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

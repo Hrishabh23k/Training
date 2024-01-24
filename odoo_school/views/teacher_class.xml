@@ -1,0 +1,54 @@
+<odoo>
+    <record id="teacher_class_form_view" model="ir.ui.view">
+        <field name="name">teacher.class.form</field>
+        <field name="model">teacher.class</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="standard"/>
+                            <field name="section"/>
+                        </group>
+                    </group>
+                    <notebook>
+                         <page string="Students" name="c_students">
+                            <tree>
+                                <field name="student_line">
+                                </field>
+                            </tree>
+                        </page>
+                        <page string="Fees" name="c_fees">
+                            <tree>
+                                <field name="fees_month">
+                                </field>
+                            </tree>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="teacher_class_tree_view" model="ir.ui.view">
+        <field name="name">teacher.class.tree</field>
+        <field name="model">teacher.class</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="standard"/>
+                <field name="section"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="teacher_class_action" model="ir.actions.act_window">
+        <field name="name">Class</field>
+        <field name="res_model">teacher.class</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Subject Details
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.sale.order.wizard,access_sale_order_wizard,model_sale_order_wizard,,1,1,1,1
+access.customer.order.line,access_customer_order_line,model_customer_order_line,,1,1,1,1
+access.customer.order.line.wizard,access_customer_order_line_wizard,model_customer_order_line_wizard,,1,1,1,1
+access.custom.bill,access_custom_bill,model_custom_bill,,1,1,1,1
+access.custom.purchase,access_custom_purchase,model_custom_purchase,,1,1,1,1
+

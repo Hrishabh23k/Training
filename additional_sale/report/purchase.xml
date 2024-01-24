@@ -1,0 +1,99 @@
+<odoo>
+
+    <template id="action_purchaseorder">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Purchase Bill</h2>
+                        <p>
+                            <span t-field="o.name"/>
+                        </p>
+                        <p>
+                            <span t-field="o.partner_id.name"/>
+                        </p>
+                        <p>
+                            <span t-field="o.date_approve"/>
+                        </p>
+                    </div>
+                    <table class="table table-sm o_main_table table-borderless mt-4">
+                        <thead style="display: table-row-group">
+                            <th>
+                                <strong>Product</strong>
+                            </th>
+                            <th>
+                                <strong>Description</strong>
+                            </th>
+                            <th>
+                                <strong>Quantity</strong>
+                            </th>
+                            <th>
+                                <strong>Unit Price</strong>
+                            </th>
+                            <th>
+                                <strong>Sub Total</strong>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.custom_purchase_id" t-as="i">
+                                <tr>
+                                    <td id="product">
+                                        <span t-field="i.product"/>
+                                    </td>
+                                    <td id="description">
+                                        <span t-field="i.desc"/>
+                                    </td>
+                                    <td id="quantity">
+                                        <span t-field="i.quantity"/>
+                                    </td>
+                                    <td id="unit_price">
+                                        <span t-field="i.unit_pr"/>
+                                    </td>
+                                    <td id="sub_total">
+                                        <span t-field="i.sub_total"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div id="total" class="row justify-content-end" style="float:right">
+                        <h4>Total =
+                            <span t-field="o.total"/>
+                        </h4>
+                    </div>
+                    <div>
+                        <h3>Invoice</h3>
+                    </div>
+
+                    <table class="table table-sm o_main_table table-borderless mt-4">
+                        <thead style="display: table-row-group">
+                            <th>
+                                <strong>Product</strong>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.order_line" t-as="j">
+                                <t t-foreach="j.invoice_lines" t-as="ian">
+                                    <tr>
+                                        <td>
+                                            <span t-field="ian.product_id.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <record id="action_purchase_order" model="ir.actions.report">
+        <field name="name">Purchase Bill</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">additional_sale.action_purchaseorder</field>
+        <field name="binding_model_id" ref="additional_sale.model_purchase_order"/>
+    </record>
+</odoo>

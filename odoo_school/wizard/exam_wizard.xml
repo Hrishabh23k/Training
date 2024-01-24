@@ -1,0 +1,40 @@
+<odoo>
+
+    <record id="exam_wizard_form_view" model="ir.ui.view">
+        <field name="name">exam.wizard.form</field>
+        <field name="model">exam.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Exam">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Marks" name="Marks">
+                            <field name="sw">
+                                <tree editable="bottom">
+                                    <field name="subject" />
+                                    <field name="marks"/>
+                                    <field name="outof"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="save_result" string="Save" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="exam_wizard_action" model="ir.actions.act_window">
+        <field name="name">Exam</field>
+        <field name="res_model">exam.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

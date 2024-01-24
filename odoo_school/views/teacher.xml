@@ -1,0 +1,31 @@
+<odoo>
+    <record id="inherited_hr_employee" model="ir.ui.view">
+        <field name="name">inherited.teacher.hr.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='136']" position="after">
+                <button name="action_confirm" string="AddDB" type="object" />
+            </xpath>
+             <xpath expr="//button[@name='136']" position="after">
+                <button name="create_duplicate" string="Duplicate" type="object" />
+            </xpath>
+            <xpath expr="//button[@name='136']" position="after">
+                <button name="action_update" string="Update" type="object" />
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page string="Allotted Class" name="teacher_class">
+                    <field name="class_line">
+                        <tree editable="bottom">
+                            <field name="standard"/>
+                            <field name="section"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>"
+
+<!--    <report-->
+<!--        id="action_purchase_report_xlsx"-->
+<!--        string="Purchase Report"-->
+<!--        model="purchase.order"-->
+<!--        report_type="xlsx"-->
+<!--        file="purchase.report_purchaseorder.xlsx"-->
+<!--        name="purchase.report_purchaseorder.xlsx"-->
+<!--    />-->
+
+</odoo>

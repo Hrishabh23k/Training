@@ -1,0 +1,41 @@
+<odoo>
+
+    <record id="sale_order_wizard_form_view" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order.wizard</field>
+        <field name="arch" type="xml">
+            <form string="SaleOrder">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sale_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Custom Order line" name="customer_order_wizard">
+                            <field name="c_line_id">
+                                <tree>
+                                    <field name="product" />
+                                    <field name="desc" />
+                                    <field name="quantity"/>
+                                    <field name="unit_pr"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="save_object" string="Save" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_wizard_action" model="ir.actions.act_window">
+        <field name="name">Sale Order Id</field>
+        <field name="res_model">sale.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id,perm_read,perm_write,perm_create,perm_unlink
+access.teacher.class,access_teacher_class,model_teacher_class,,1,1,1,1
+access.odoo.student,access_odoo_student,model_odoo_student,,1,1,1,1
+access.odoo.exam,access_odoo_exam,model_odoo_exam,,1,1,1,1
+access.odoo.subject,access_odoo_subject,model_odoo_subject,,1,1,1,1
+access.exam.wizard,access_exam_wizard,model_exam_wizard,,1,1,1,1
+access.subject.wizard,access_subject_wizard,model_subject_wizard,,1,1,1,1
+access.student.class.fees,access_student_class_fees,model_student_class_fees,,1,1,1,1

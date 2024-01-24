@@ -1,0 +1,45 @@
+<odoo>
+    <record id="device_type_form_view" model="ir.ui.view">
+        <field name="name">device.type.form</field>
+        <field name="model">device.type</field>
+        <field name="arch" type="xml">
+            <form string="Device Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" decoration-bf="1"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="device_type_tree_view" model="ir.ui.view">
+        <field name="name">device.type.tree</field>
+        <field name="model">device.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" decoration-bf="1"/>
+                <field name="code"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="device_type_action" model="ir.actions.act_window">
+        <field name="name">Device Type</field>
+        <field name="res_model">device.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Device Type
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

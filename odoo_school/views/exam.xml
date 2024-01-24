@@ -1,0 +1,186 @@
+<odoo>
+    <record id="odoo_student_form_view" model="ir.ui.view">
+        <field name="name">odoo.student.form</field>
+        <field name="model">odoo.student</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+
+                <header>
+                    <button name="%(exam_wizard_action)d" string="Exam" class="oe_highlight" type="action"/>
+                    <button name="confirm_false" string="Draft" class="oe_highlight" type="object" attrs="{'invisible': [('confirmation', '=', False)]}"/>
+                    <button name="confirm_true" string="Confirm" class="oe_highlight" type="object" attrs="{'invisible': [('confirmation', '=', True)]}"/>
+                    <button name="create_subject" string="Default Subject" class="oe_highlight" type="object"/>
+                    <button name="create_student" string="Default_student" class="oe_highlight" type="object"/>
+                    <button name="delete_student" string="Delete" class="oe_highlight" type="object"/>
+                    <button name="add_student" string="AddDB" type="object" />
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                            <field name="date_of_birth" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                            <field name="age"/>
+                            <field name="gender" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                        </group>
+                        <group>
+                            <field name="class_id" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                             <field name="confirmation"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details" name="s_detail">
+                            <group>
+                                <group>
+                                    <field name="father" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                                    <field name="mother" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                                    <field name="father_occupation" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                                    <field name="mother_occupation" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                                </group>
+                                <group>
+                                    <field name="address" attrs="{'readonly': [('confirmation', '=', True)]}"/>
+                                    <field name="sibling"/>
+                                    <field name="sibling_name" attrs="{'invisible': [('sibling', '=', False)]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Teacher" name="s_teacher">
+                            <field name="teacher_name">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="work_phone"/>
+                                    <field name="subject_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Subject" name="s_subject">
+                            <field name="subject_id">
+                                <tree editable="bottom">
+                                    <field name="subject"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Exam" name="s_exam">
+                            <field name="exam_id">
+                                <tree>
+                                    <field name="sub" context="{'default_student_id': student_id}"/>
+                                    <field name="marks" sum="Total"/>
+                                    <field name="outof" sum="Total"/>
+                                    <field name="student_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Fees" name="s_fees">
+                            <field name="fees_id">
+                                <tree editable="bottom">
+                                    <field name="month"/>
+                                    <field name="total"/>
+                                    <field name="pay"/>
+                                    <field name="remaining"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_subject_form_view" model="ir.ui.view">
+        <field name="name">odoo.subject.form</field>
+        <field name="model">odoo.subject</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="subject"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_exam_form_view" model="ir.ui.view">
+        <field name="name">odoo.exam.form</field>
+        <field name="model">odoo.exam</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+                <sheet>
+                    <tree editable="bottom">
+                        <field name="sub"/>
+                        <field name="marks"/>
+                        <field name="outof"/>
+                    </tree>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_student_tree_view" model="ir.ui.view">
+        <field name="name">odoo.student.tree</field>
+        <field name="model">odoo.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="create_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_subject_tree_view" model="ir.ui.view">
+        <field name="name">odoo.subject.tree</field>
+        <field name="model">odoo.subject</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subject"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_exam_tree_view" model="ir.ui.view">
+        <field name="name">odoo.exam.tree</field>
+        <field name="model">odoo.exam</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sub"/>
+                <field name="marks"/>
+                <field name="outof"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_student_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">odoo.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Student Details
+            </p>
+        </field>
+    </record>
+
+    <record id="odoo_subject_action" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="res_model">odoo.subject</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Subject Details
+            </p>
+        </field>
+    </record>
+
+    <record id="odoo_exam_action" model="ir.actions.act_window">
+        <field name="name">Exam</field>
+        <field name="res_model">odoo.exam</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Exam Details
+            </p>
+        </field>
+    </record>
+</odoo>

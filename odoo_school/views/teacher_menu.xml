@@ -1,0 +1,23 @@
+<odoo>
+    <menuitem
+            id="menu_hr_employee_teacher"
+            name="Teacher"
+            sequence="10" parent="hr.menu_hr_root" action="hr.open_view_employee_list_my"/>
+    <menuitem
+            id="menu_hr_employee_class"
+            name="class"
+            sequence="10" parent="menu_hr_employee_teacher" action="teacher_class_action"/>
+    <menuitem
+            id="menu_hr_employee_fees"
+            name="fees"
+            sequence="10" parent="menu_hr_employee_teacher" action="student_class_fees_action"/>
+
+    <menuitem
+            id="menu_hr_employee_subject"
+            name="Subject"
+            sequence="10" parent="menu_hr_employee_teacher" action="odoo_subject_action"/>
+    <menuitem
+            id="menu_hr_employee_student"
+            name="Student"
+            sequence="10" parent="menu_hr_employee_teacher" action="odoo_student_action"/>
+</odoo>

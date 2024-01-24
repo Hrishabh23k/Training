@@ -1,0 +1,40 @@
+<odoo>
+    <record id="inherited_model_view_form" model="ir.ui.view">
+        <field name="name">inherited.sale.order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="character"/>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice']" position="before">
+                <button name="%(sale_order_wizard_action)d" string="Custom Order" type="action" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice']" position="before">
+                <button name="add_custom_bill" string="Custom Bill" type="object"
+                        attrs="{'invisible':[('invoice_count','=',0)]}" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//field[@name='product_template_id']" position="after">
+                    <field name="discount_amount"/>
+            </xpath>
+            <xpath expr="//page[@name='customer_signature']" position="after">
+                <page string="Custom Order line" name="customer_order_line">
+                    <field name="customer_order_line_id">
+                        <tree editable="bottom">
+                            <field name="product"/>
+                            <field name="desc"/>
+                            <field name="quantity"/>
+                            <field name="unit_pr"/>
+                            <field name="sub_total" />
+                        </tree>
+                    </field>
+                    <div style="display:flex;float:right">
+                        <div>Total = </div>
+                        <div><field name="total"/></div>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

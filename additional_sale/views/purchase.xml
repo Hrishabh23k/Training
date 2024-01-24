@@ -1,0 +1,52 @@
+<odoo>
+    <record id="inherited_purchase_order_id" model="ir.ui.view">
+        <field name="name">inherited.purchase.order</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_rfq_send']" position="after">
+                <button name="pass_value" string="Custom Purchase" type="object"/>
+            </xpath>
+            <xpath expr="//button[@name='action_rfq_send']" position="after">
+                <button name="action_send_mail" string="Send Mail" type="object"/>
+            </xpath>
+            <xpath expr="//field[@name='product_qty']" position="after">
+                <field name="additional_price"/>
+            </xpath>
+
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+                <page string="Custom Purchase" name="custom_purchase">
+                    <field name="custom_purchase_id">
+                        <tree editable="bottom">
+                            <field name="product"/>
+                            <field name="desc"/>
+                            <field name="quantity"/>
+                            <field name="unit_pr"/>
+                            <field name="sub_total"/>
+                        </tree>
+                    </field>
+                    <div style="display:flex;float:right">
+                        <div>Total =</div>
+                        <div>
+                            <field name="total"/>
+                        </div>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <data>
+        <record id="ir_cron_scheduler_recurring_action" model="ir.cron">
+            <field name="name">Auto Custom Purchase</field>
+            <field name="model_id" ref="model_custom_purchase"/>
+            <field name="state">object_create</field>
+            <field name="code">model.pass_value()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+
+</odoo>

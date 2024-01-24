@@ -1,0 +1,41 @@
+<odoo>
+    <record id="device_attribute_value_form_view" model="ir.ui.view">
+        <field name="name">device.attribute.value.form</field>
+        <field name="model">device.attribute.value</field>
+        <field name="arch" type="xml">
+            <form string="Device">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="device_attribute_value_tree_view" model="ir.ui.view">
+        <field name="name">device.attribute.value.tree</field>
+        <field name="model">device.attribute.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" decoration-bf="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="device_attribute_value_action" model="ir.actions.act_window">
+        <field name="name">Device Attribute Value</field>
+        <field name="res_model">device.attribute.value</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Device Attribute Value
+            </p>
+        </field>
+    </record>
+
+
+</odoo>
