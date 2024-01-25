@@ -20,6 +20,7 @@
         'views/teacher.xml',
         'views/odoo_school_settings.xml',
         'views/fees.xml',
+        'views/schedule_actions.xml',
         'views/teacher_menu.xml',
     ],
 

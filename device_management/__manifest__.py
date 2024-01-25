@@ -28,6 +28,8 @@
         'web.assets_backend': [
             # 'device_management/static/src/scss/device_rating.scss',
             'device_management/static/src/js/device_rating.js',
+            'device_management/static/src/js/device_extends.js',
+            'device_management/static/src/xml/device_button.xml',
             'device_management/static/src/xml/device_rating.xml',
         ],
     },

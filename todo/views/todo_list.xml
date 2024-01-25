@@ -5,7 +5,7 @@
             <field name="name">owl.todo.tree.form.view</field>
             <field name="model">owl.todo.list</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree js_class="button_in_tree">
                     <header>
                         <button name="button_click" string="label" type="object" states="draft"/>
                     </header>

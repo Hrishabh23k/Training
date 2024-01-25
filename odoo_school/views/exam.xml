@@ -74,9 +74,10 @@
                             <field name="fees_id">
                                 <tree editable="bottom">
                                     <field name="month"/>
-                                    <field name="total"/>
+                                    <field name="total" sum="Total"/>
                                     <field name="pay"/>
-                                    <field name="remaining"/>
+                                    <field name="paid" sum="Total"/>
+                                    <field name="remaining" sum="Total"/>
                                 </tree>
                             </field>
                         </page>

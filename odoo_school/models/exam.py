@@ -34,7 +34,15 @@ class Student(models.Model):
     total = fields.Integer(string="Total")
 
 
-    @api.depends('age')
+    # @api.constrains('fees_id')
+    # def _check_month(self):
+    #     li = []
+    #     for m in self.fees_id:
+    #         li.append(m.month)
+    #     if self.fees_id.month in li:
+    #         raise ValidationError("Cannot repeat month")
+
+    @api.depends('date_of_birth')
     def _compute_age(self):
         today = date.today()
         self.age = today.year - self.date_of_birth.year
@@ -43,6 +51,13 @@ class Student(models.Model):
     def _compute_roll(self):
         self.rollno = 1000 + self.id
 
+    def create_month(self):
+        # query = """
+        #         INSERT INTO odoo_subject(subject)
+        #         VALUES('Zoology')
+        # """
+        # self.env.cr.execute(query)
+        print("month")
 
     def create_subject(self):
         query = """

@@ -21,10 +21,19 @@ class Fees(models.Model):
         ('December', 'December'),
     ])
 
-    total = fields.Float(string="Total")
-    pay = fields.Float(string="Pay")
-    remaining = fields.Float(string='Remaining')
+    total = fields.Float(string="Total", default=16000, readonly=True)
+    pay = fields.Float(string="Pay", default=0)
+    paid = fields.Float(string='Paid', readonly=True, compute='_compute_paid', store=True)
+    remaining = fields.Float(string='Remaining', readonly=True, compute='_compute_remaining', store=True)
     student_id = fields.Many2one('odoo.student', string="student")
+
+    @api.depends('pay')
+    def _compute_paid(self):
+        self.paid = self.paid + self.pay
+
+    @api.depends('total','paid')
+    def _compute_remaining(self):
+        self.remaining = self.total - self.paid
 
     # @api.constrains('student_id')
     # def _check_month(self):

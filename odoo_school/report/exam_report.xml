@@ -8,11 +8,11 @@
                         <h4>Report Card</h4>
                         <h4>Ksolves Odoo School</h4>
                     </div>
-                        <h5> Scholar Number :- <span t-field="o.rollno"/> </h5>
-                        <h5> Name :- <span t-field="o.name"/></h5>
-                        <h5> Age :- <span t-field="o.age"/></h5>
-                        <h5> Father :- <span t-field="o.father"/></h5>
-                        <h5> Mother :- <span t-field="o.mother"/></h5>
+                        <h5> Scholar Number :-      <span t-field="o.rollno"/> </h5>
+                        <h5> Name :-                <span t-field="o.name"/></h5>
+                        <h5> Age :-                 <span t-field="o.age"/></h5>
+                        <h5> Father :-              <span t-field="o.father"/></h5>
+                        <h5> Mother :-              <span t-field="o.mother"/></h5>
                         <h5> Class :- <span t-field="o.class_id"/></h5>
                     <table style="width:100%">
                         <thead style="display: table-row-group">
