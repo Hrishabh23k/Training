@@ -39,7 +39,7 @@
         <field name="name">device.assignment.tree</field>
         <field name="model">device.assignment</field>
         <field name="arch" type="xml">
-            <tree default_order="id desc" js_class="inventory_report_list">
+            <tree>
                 <header>
                     <button name="button_click" string="label" type="object" states="draft"/>
                 </header>

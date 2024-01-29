@@ -1,5 +1,6 @@
 import contextlib
 from odoo import fields, models, api, sql_db, SUPERUSER_ID
+import psycopg2
 from datetime import date
 
 
@@ -12,12 +13,22 @@ class Teacher(models.Model):
     subject_name = fields.Many2one('odoo.subject', string="Subject")
 
     def action_confirm(self):
-        #res = super().action_confirm()
-        connection = sql_db.db_connect('odoo_16_5')
-        with contextlib.closing(connection.cursor()) as cr:
-            cr.autocommit(True)
-            env = api.Environment(cr, SUPERUSER_ID, {})
-            env['hr.employee'].create({'name': self.name, 'work_email': self.work_email})
+        try:
+            conn = psycopg2.connect(dbname='odoo_16_5',
+                                    user="odoo",
+                                    host='localhost',
+                                    password="odoo",
+                                    port='5432'
+                                    )
+
+            cur = conn.cursor()
+            cur.execute('INSERT INTO hr_employee (name) VALUES (%s)', (self.name,))
+            conn.commit()
+            cur.close()
+            conn.close()
+        except (Exception, psycopg2.Error) as error:
+            print("Could not connect with database", error)
+
 
     def create_duplicate(self):
         self.env['hr.employee'].create({'name': self.name, 'work_email': self.work_email})

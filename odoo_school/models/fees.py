@@ -35,6 +35,13 @@ class Fees(models.Model):
     def _compute_remaining(self):
         self.remaining = self.total - self.paid
 
+    @api.depends('total')
+    def _compute_fees(self):
+        if self.month == 'January':
+            self.total = 16000
+        else:
+            self.total = 12000
+
     # @api.constrains('student_id')
     # def _check_month(self):
     #     month_list = []

@@ -20,7 +20,7 @@
         <field name="name">device.tree</field>
         <field name="model">device</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree default_order="id desc" js_class="inventory_report_list">
                 <field name="name" decoration-bf="1"/>
                 <field name="shared"/>
             </tree>
@@ -39,5 +39,15 @@
         </field>
     </record>
 
+    <record id="device_tree_inherit_js_class" model="ir.ui.view">
+        <field name="name">device.tree.inherit</field>
+        <field name="model">device</field>
+        <field name="inherit_id" ref="device_management.device_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">Device</attribute>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>

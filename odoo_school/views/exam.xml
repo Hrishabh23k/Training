@@ -13,6 +13,8 @@
                     <button name="create_student" string="Default_student" class="oe_highlight" type="object"/>
                     <button name="delete_student" string="Delete" class="oe_highlight" type="object"/>
                     <button name="add_student" string="AddDB" type="object" />
+                    <button name="add_studentapi" string="add_student_api" type="object" />
+                    <button name="update_studentapi" string="Update_student_api" type="object" />
                 </header>
 
                 <sheet>

@@ -2,6 +2,7 @@ import contextlib
 from odoo import fields, models, api, sql_db, SUPERUSER_ID
 from datetime import date
 from odoo.exceptions import ValidationError
+import psycopg2
 
 
 class Student(models.Model):
@@ -9,7 +10,7 @@ class Student(models.Model):
 
     rollno = fields.Integer(string="ScholarNo", compute='_compute_roll')
     name = fields.Char(string="Name")
-    date_of_birth = fields.Date(string="DOB", required=True)
+    date_of_birth = fields.Date(string="DOB")
     age = fields.Integer(string="Age", compute="_compute_age", tracking=True, readonly=True)
     gender = fields.Selection(string="Gender", selection=[('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')],
                               required=True)
@@ -42,7 +43,7 @@ class Student(models.Model):
     #     if self.fees_id.month in li:
     #         raise ValidationError("Cannot repeat month")
 
-    @api.depends('date_of_birth')
+    @api.depends('age')
     def _compute_age(self):
         today = date.today()
         self.age = today.year - self.date_of_birth.year
@@ -92,12 +93,40 @@ class Student(models.Model):
             env = api.Environment(cr, SUPERUSER_ID, {})
             env['odoo.student'].create({'name': self.name, 'gender': self.gender, 'date_of_birth': self.date_of_birth})
 
-    def update_student(self):
-        connection = sql_db.db_connect('odoo_16_4')
-        with contextlib.closing(connection.cursor()) as cr:
-            cr.autocommit(True)
-            env = api.Environment(cr, SUPERUSER_ID, {})
-            env['odoo.student'].write({'name': self.name, 'gender': self.gender, 'date_of_birth': self.date_of_birth})
+    def add_studentapi(self):
+        try:
+            conn = psycopg2.connect(dbname='odoo_16_5',
+                                    user="odoo",
+                                    host='localhost',
+                                    password="odoo",
+                                    port='5432'
+                                    )
+
+            cur = conn.cursor()
+            cur.execute('INSERT INTO odoo_student (name,gender,date_of_birth) VALUES (%s,%s,%s)', (self.name,self.gender,self.date_of_birth))
+            conn.commit()
+            cur.close()
+            conn.close()
+        except (Exception, psycopg2.Error) as error:
+            print("Could not connect with database", error)
+
+    def update_studentapi(self):
+        team = self.name
+        try:
+            conn = psycopg2.connect(dbname='odoo_16_4',
+                                    user="odoo",
+                                    host='localhost',
+                                    password="odoo",
+                                    port='5432'
+                                    )
+
+            cur = conn.cursor()
+            cur.execute('UPDATE odoo_student SET name=(%s),gender=(%s),date_of_birth=(%s) WHERE name=(%s)', (self.name,self.gender,self.date_of_birth,team))
+            conn.commit()
+            cur.close()
+            conn.close()
+        except (Exception, psycopg2.Error) as error:
+            print("Could not connect with database", error)
 
 
 class Exam(models.Model):

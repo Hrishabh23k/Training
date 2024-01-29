@@ -23,6 +23,6 @@
         <field name="perm_write" eval="True"/>
         <field name="perm_create" eval="True"/>
         <field name="perm_unlink" eval="True"/>
-        <field name="active" eval="True"/>
+        <field name="active" eval="False"/>
     </record>
 </odoo>

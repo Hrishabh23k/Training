@@ -7,13 +7,17 @@
                     <div class="page" style="text-align:center;">
                         <h4>Report Card</h4>
                         <h4>Ksolves Odoo School</h4>
+                        <img class="img" src="/odoo_school/static/description/icon.png" style="border-radius:100px;height:60px" />
                     </div>
                         <h5> Scholar Number :-      <span t-field="o.rollno"/> </h5>
                         <h5> Name :-                <span t-field="o.name"/></h5>
                         <h5> Age :-                 <span t-field="o.age"/></h5>
                         <h5> Father :-              <span t-field="o.father"/></h5>
                         <h5> Mother :-              <span t-field="o.mother"/></h5>
-                        <h5> Class :- <span t-field="o.class_id"/></h5>
+                        <h5> Class :-               <span t-field="o.class_id"/></h5>
+                    <div class="page" style="text-align:center;">
+                        <h4>Score Card</h4>
+                    </div>
                     <table style="width:100%">
                         <thead style="display: table-row-group">
                             <th>
@@ -37,6 +41,31 @@
                                     </td>
                                     <td id="outof">
                                         <span t-field="i.outof"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="page" style="text-align:center;">
+                        <h4>Net Outstanding</h4>
+                    </div>
+                    <table style="width:100%">
+                        <thead style="display: table-row-group">
+                            <th>
+                                <strong>Month</strong>
+                            </th>
+                            <th>
+                                <strong>Remaining</strong>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.fees_id" t-as="i">
+                                <tr>
+                                    <td id="subject">
+                                        <span t-field="i.month"/>
+                                    </td>
+                                    <td id="marks">
+                                        <span t-field="i.remaining"/>
                                     </td>
                                 </tr>
                             </t>
