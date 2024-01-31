@@ -7,3 +7,4 @@ access.device.attribute.value,access_device_attribute_value,model_device_attribu
 access.device.brand,access_device_brand,model_device_brand,base.group_user,1,1,1,1
 access.device.model,access_device_model,model_device_model,base.group_user,1,1,1,1
 access.device.type,access_device_type,model_device_type,base.group_user,1,1,1,1
+access.display.wizard,access_display_wizard,model_display_wizard,base.group_user,1,1,1,1

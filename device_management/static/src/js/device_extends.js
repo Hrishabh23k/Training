@@ -8,20 +8,12 @@ export class DeviceListController extends ListController {
    }
    OnTestClick() {
         alert("Hello")
-//       this.actionService.doAction({
-//          type: 'ir.actions.act_window',
-//          res_model: 'test.wizard',
-//          name:'Open Wizard',
-//          view_mode: 'form',
-//          view_type: 'form',
-//          views: [[false, 'form']],
-//          target: 'new',
-//          res_id: false,
-//      });
    }
 }
+
+
 registry.category("views").add("button_in_tree", {
    ...listView,
    Controller: DeviceListController,
-   buttonTemplate: "device_management.ListView.Buttons",
+//   buttonTemplate: "device_management.ListView.Buttons",
 });

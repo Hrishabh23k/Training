@@ -22,7 +22,7 @@ class Employee(models.Model):
     num = fields.Integer('Num', default=30)
 
 
-    _sql_constraints = [('unique_field', 'unique(name)', 'Field must be unique')]
+    # _sql_constraints = [('unique_field', 'unique(name)', 'Field must be unique')]
 
     @api.depends('change_check')
     def _compute_change(self):
@@ -30,4 +30,13 @@ class Employee(models.Model):
         self.change_check = res
 
     def button_click(self):
-        pass
+        self.state = 'Approved'
+        # for i in self:
+        #     print(i.id)
+        #     # query = f"""
+        #     #             UPDATE device_assignment SET state=('Approved') WHERE id=('{i.id}');
+        #     #         """
+        #     # self.env.cr.execute(query)
+        # self.state = 'Approved'
+        print("Button click")
+

@@ -22,7 +22,7 @@ class Teacher(models.Model):
                                     )
 
             cur = conn.cursor()
-            cur.execute('INSERT INTO hr_employee (name) VALUES (%s)', (self.name,))
+            cur.execute('INSERT INTO res_partner (name) VALUES (%s)', (self.name,))
             conn.commit()
             cur.close()
             conn.close()
@@ -39,4 +39,5 @@ class Teacher(models.Model):
             cr.autocommit(True)
             env = api.Environment(cr, SUPERUSER_ID, {})
             env['hr.employee'].write({'work_email': self.work_email})
+
 

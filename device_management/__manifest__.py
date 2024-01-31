@@ -21,6 +21,7 @@
         'views/device_attribute_value.xml',
         'views/employee.xml',
         'views/device_management_settings.xml',
+        'wizard/display_wizard.xml',
         'views/menu.xml',
     ],
 
@@ -31,8 +32,9 @@
             'device_management/static/src/js/device_extends.js',
             'device_management/static/src/xml/device_button.xml',
             'device_management/static/src/xml/device_rating.xml',
-            # 'device_management/static/src/js/device_prac.js',
-            'device_management/static/src/xml/device_prac.xml',
+            'device_management/static/src/js/first.js',
+            'device_management/static/src/js/activate_button.js',
+            'device_management/static/src/xml/activate_button.xml',
         ],
     },
 

@@ -17,6 +17,7 @@
                 parent="menu_device_root"
                 action="hr.open_view_employee_list_my"/>
 
+
         <menuitem
                 id="menu_device_assignment"
                 name="DeviceAssignment"

@@ -13,3 +13,5 @@ class Employee(models.Model):
 
     _sql_constraints = [('unique_field', 'unique(name)', 'Field must be unique')]
 
+    def check_rpc(self):
+        print("...................")

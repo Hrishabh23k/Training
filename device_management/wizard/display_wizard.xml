@@ -1,0 +1,19 @@
+<odoo>
+
+    <record id="display_wizard_form_view" model="ir.ui.view">
+        <field name="name">display.wizard.form</field>
+        <field name="model">display.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Display">
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="display_wizard_action" model="ir.actions.act_window">
+        <field name="name">Display</field>
+        <field name="res_model">display.wizard</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>
