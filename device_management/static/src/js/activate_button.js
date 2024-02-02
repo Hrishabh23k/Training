@@ -4,6 +4,8 @@ import { registry } from '@web/core/registry';
 import { listView } from '@web/views/list/list_view';
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
+import { browser } from "@web/core/browser/browser";
+
 
 export class ApprovedController extends ListController{
     setup(){
@@ -27,6 +29,7 @@ export class ApprovedController extends ListController{
                 this.env._t("Your Device Assignment is Approved"),
             )
             });
+            browser.location.reload();
             console.log(record_ids);
     }
 

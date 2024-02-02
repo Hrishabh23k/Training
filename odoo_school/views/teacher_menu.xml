@@ -3,6 +3,12 @@
             id="menu_hr_employee_teacher"
             name="Teacher"
             sequence="10" parent="hr.menu_hr_root" action="hr.open_view_employee_list_my"/>
+
+    <menuitem
+            id="menu_contact"
+            name="Contact"
+            sequence="10" parent="hr.menu_hr_root" action="base.action_partner_title_contact"/>
+
     <menuitem
             id="menu_hr_employee_class"
             name="class"

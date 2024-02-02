@@ -4,6 +4,15 @@
         <field name="model">device.brand</field>
         <field name="arch" type="xml">
             <form string="Device Brand">
+                <header>
+                    <button name="add_record" string="0,0" type="object"/>
+                    <button name="update_record" string="1,Id" type="object"/>
+                    <button name="remove_record" string="2,Id" type="object"/>
+                    <button name="cut_record" string="3,Id" type="object"/>
+                    <button name="link_record" string="4,Id" type="object"/>
+                    <button name="unlink_record" string="5" type="object"/>
+                    <button name="replace_record" string="6,0,[Ids]" type="object"/>
+                </header>
                 <sheet>
                     <group>
                         <group>

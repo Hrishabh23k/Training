@@ -70,16 +70,16 @@
     </record>
 
 
-    <record id="device_management_tree_inherit_js_class" model="ir.ui.view">
-        <field name="name">device.management.tree.inherit</field>
-        <field name="model">device.assignment</field>
-        <field name="inherit_id" ref="device_management.device_assignment_tree_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//tree" position="attributes">
-                <attribute name="js_class">button_in_tree</attribute>
-            </xpath>
-        </field>
-    </record>
+<!--    <record id="device_management_tree_inherit_js_class" model="ir.ui.view">-->
+<!--        <field name="name">device.management.tree.inherit</field>-->
+<!--        <field name="model">device.assignment</field>-->
+<!--        <field name="inherit_id" ref="device_management.device_assignment_tree_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//tree" position="attributes">-->
+<!--                <attribute name="js_class">button_in_tree</attribute>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
 
     <record id="device_management_tree_approved_js_class" model="ir.ui.view">
         <field name="name">device.management.tree.inherit</field>

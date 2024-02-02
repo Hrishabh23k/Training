@@ -1,0 +1,10 @@
+<odoo>
+    <record id="inherited_res_partner" model="ir.ui.view">
+        <field name="name">inherited.res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+
+    </record>
+
+
+</odoo>

@@ -21,6 +21,7 @@
         'views/odoo_school_settings.xml',
         'views/fees.xml',
         'views/schedule_actions.xml',
+        'views/res_partner.xml',
         'views/teacher_menu.xml',
     ],
 
